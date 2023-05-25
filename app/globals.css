@@ -13,3 +13,11 @@
 .left-menu-icons {
   @apply w-10 h-10 text-xl bg-hoverColor rounded-full inline-flex items-center justify-center hover:text-textGreen cursor-pointer hover:-translate-y-2 transition-all duration-300;
 }
+
+.left-right-base {
+  @apply w-full h-full flex flex-col items-center justify-end text-textLight;
+}
+
+.left-right-line {
+  @apply hidden xl:inline-flex w-32 h-full fixed bottom-0;
+}
