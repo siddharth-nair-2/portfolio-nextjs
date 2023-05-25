@@ -4,8 +4,25 @@ import { logoImg } from "@/public/assets";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const Navbar = () => {
+  const ref = useRef<string | any>("");
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({ behavior: "smooth" });
+
+    const links = document.querySelectorAll(".nav-link");
+    links.forEach((link) => {
+      link.classList.remove("active");
+    });
+    e.currentTarget.classList.add("active");
+  };
+
   return (
     <div className=" w-full shadow-navbarShadow h-20 lg:h-[12vh] sticky top-0 z-50 bg-bodyColor px-4">
       <div
@@ -25,7 +42,11 @@ const Navbar = () => {
         </motion.div>
         <div className="hidden mdl:inline-flex items-center gap-7">
           <ul className="flex text-[13px] gap-7">
-            <Link href="#home" className="navbar-options nav-link">
+            <Link
+              href="#home"
+              className="navbar-options nav-link"
+              onClick={handleClick}
+            >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -34,7 +55,11 @@ const Navbar = () => {
                 Home
               </motion.li>
             </Link>
-            <Link href="#about" className="navbar-options nav-link">
+            <Link
+              href="#about"
+              className="navbar-options nav-link"
+              onClick={handleClick}
+            >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -43,7 +68,11 @@ const Navbar = () => {
                 <span className=" text-textGreen">01.</span>About
               </motion.li>
             </Link>
-            <Link href="#experience" className="navbar-options nav-link">
+            <Link
+              href="#experience"
+              className="navbar-options nav-link"
+              onClick={handleClick}
+            >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -52,7 +81,11 @@ const Navbar = () => {
                 <span className=" text-textGreen">02.</span>Experience
               </motion.li>
             </Link>
-            <Link href="#project" className="navbar-options nav-link">
+            <Link
+              href="#project"
+              className="navbar-options nav-link"
+              onClick={handleClick}
+            >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -61,7 +94,11 @@ const Navbar = () => {
                 <span className=" text-textGreen">03.</span>Project
               </motion.li>
             </Link>
-            <Link href="#contact" className="navbar-options nav-link">
+            <Link
+              href="#contact"
+              className="navbar-options nav-link"
+              onClick={handleClick}
+            >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
