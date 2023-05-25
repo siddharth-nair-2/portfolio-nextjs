@@ -46,16 +46,16 @@ const Banner = () => {
           </span>
         </Link>
       </motion.p>
-      <a href="https://github.com/siddharth-nair-2/" target="_blank">
-        <motion.button
-          className="w-52 h-14 text-sm border border-textGreen rounded-md text-textGreen tracking-wide hover:bg-hoverColor duration-300"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
+      <motion.button
+        className="w-52 h-14 text-sm border border-textGreen rounded-md text-textGreen tracking-wide hover:bg-hoverColor duration-300"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
+      >
+        <a href="https://github.com/siddharth-nair-2/" target="_blank">
           Check out my projects!
-        </motion.button>
-      </a>
+        </a>
+      </motion.button>
     </section>
   );
 };

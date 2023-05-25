@@ -5,8 +5,11 @@ import RightBar from "@/components/RightBar";
 import About from "../components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Archive from "@/components/sections/Archive";
+import { getData } from "./get-repos";
+import { Repo } from "@/types/Repo";
 
-export default function Home() {
+export default async function Home() {
+  const tempRepos: Repo[] = await getData();
   return (
     <div className=" w-full h-[88vh] xl:flex items-center gap-20 justify-between">
       <LeftBar />
@@ -15,7 +18,7 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
-        <Archive />
+        <Archive tempRepos={tempRepos} />
       </div>
       <RightBar />
     </div>
