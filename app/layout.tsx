@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { inter } from "./fonts";
 import "./globals.css";
 
@@ -14,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>Hello</div>
-        {children}
+        <main className=" w-full h-screen bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll">
+          <Navbar />
+          {children}
+        </main>
       </body>
     </html>
   );
