@@ -4,6 +4,7 @@ import LeftBar from "@/components/LeftBar";
 import RightBar from "@/components/RightBar";
 import About from "../components/sections/About";
 import Projects from "@/components/sections/Projects";
+import Archive from "@/components/sections/Archive";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
+        <Archive />
       </div>
       <RightBar />
     </div>

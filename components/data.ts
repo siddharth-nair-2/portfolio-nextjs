@@ -1,3 +1,6 @@
+import { arenaImg, autograderImg, footyImg } from '@/public/assets'
+import { StaticImageData } from 'next/image'
+
 type jobType = {
   id: number
   title: string
@@ -61,7 +64,7 @@ type projectType = {
   techStack: string[]
   github: string
   demo: string
-  image: string
+  image: StaticImageData
 }
 
 const projectInfo: projectType[] = [
@@ -69,7 +72,7 @@ const projectInfo: projectType[] = [
     id: 1,
     title: 'AutoGrader',
     description:
-      'AutoGrader is a tool designed to simplify the process of grading programming assignments for instructors, while providing students with a user-friendly in-browser Integrated Development Environmen',
+      'AutoGrader is a tool designed to simplify the process of grading programming assignments for instructors, while providing students with a user-friendly in-browser Integrated Development Environment.',
     techStack: [
       'Java',
       'React',
@@ -80,7 +83,7 @@ const projectInfo: projectType[] = [
     ],
     github: 'https://github.com/siddharth-nair-2/AutoGrader-FinalBuild',
     demo: 'https://auto-grader.cyclic.app/',
-    image: '/assets/images/autograder.png',
+    image: autograderImg,
   },
   {
     id: 2,
@@ -90,7 +93,7 @@ const projectInfo: projectType[] = [
     techStack: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Axios', 'Heroku'],
     github: 'https://github.com/siddharth-nair-2/Arena-chat-app',
     demo: 'https://temp-arena-chat.herokuapp.com/',
-    image: '/assets/images/arena.png',
+    image: arenaImg,
   },
   {
     id: 3,
@@ -100,7 +103,7 @@ const projectInfo: projectType[] = [
     techStack: ['React', 'Redux', 'Material-UI', 'Stripe', 'Axios', 'Heroku'],
     github: 'https://github.com/siddharth-nair-2/Ecommerce-Project',
     demo: 'https://delightful-cascaron-a4fa91.netlify.app/',
-    image: '/assets/images/footyshop.png',
+    image: footyImg,
   },
 ]
 
