@@ -7,6 +7,8 @@ import Projects from "@/components/sections/Projects";
 import Archive from "@/components/sections/Archive";
 import { getData } from "./get-repos";
 import { Repo } from "@/types/Repo";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 
 export default async function Home() {
   const tempRepos: Repo[] = await getData();
@@ -19,6 +21,8 @@ export default async function Home() {
         <Experience />
         <Projects />
         <Archive tempRepos={tempRepos} />
+        <Contact />
+        <Footer />
       </div>
       <RightBar />
     </div>

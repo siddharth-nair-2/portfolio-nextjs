@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ArchiveCard from "../ArchiveCard";
 import { motion } from "framer-motion";
 import { Repo } from "@/types/Repo";
+import { montserrat } from "@/app/fonts";
 
 interface ArchiveProps {
   tempRepos: Repo[];
@@ -41,7 +42,7 @@ const Archive = ({ tempRepos }: ArchiveProps) => {
       </div>
       <div className=" mt-12 flex items-center justify-center">
         <button
-          className="w-36 h-12 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor duration-300"
+          className={`${montserrat.className} w-36 h-12 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor duration-300`}
           onClick={() => {
             setShowMore((prev) => !prev);
           }}
