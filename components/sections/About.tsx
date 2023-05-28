@@ -79,6 +79,7 @@ const About = () => {
                 alt="profile img"
                 width={380}
                 height={385}
+                priority
               />
               <div className="hidden lgl:inline-block absolute w-full h-80 bg-textGreen/20 rounded-md top-0 left-0 group-hover:bg-transparent duration-300"></div>
             </div>
