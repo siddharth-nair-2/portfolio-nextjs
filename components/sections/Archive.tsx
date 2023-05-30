@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ArchiveCard from "../smaller-components/ArchiveCard";
 import { motion } from "framer-motion";
 import { Repo } from "@/types/Repo";
-import { event } from "nextjs-google-analytics";
+import ReactGA from "react-ga4";
 import { montserrat } from "@/app/fonts";
 
 interface ArchiveProps {
@@ -45,8 +45,9 @@ const Archive = ({ tempRepos }: ArchiveProps) => {
         <button
           className={`${montserrat.className} w-36 h-12 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor duration-300`}
           onClick={() => {
-            event("Load_More_Repos", {
+            ReactGA.event({
               category: "Archive",
+              action: "Load_More_Repos",
               label: "loaded repos",
             });
             setShowMore((prev) => !prev);

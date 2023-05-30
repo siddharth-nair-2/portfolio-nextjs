@@ -2,7 +2,7 @@
 
 import { montserrat } from "@/app/fonts";
 import React, { useState } from "react";
-import { event } from "nextjs-google-analytics";
+import ReactGA from "react-ga4";
 import SectionTitle from "../smaller-components/SectionTitle";
 import { jobInfo } from "../smaller-components/data";
 import WorkInfo from "../smaller-components/WorkInfo";
@@ -27,7 +27,8 @@ const Experience = () => {
               } border-l-2 bg-transparent hover:bg-[#112240] py-3 text-sm cursor-pointer duration-300 px-8 font-medium`}
               key={job.id}
               onClick={() => {
-                event("Change_company", {
+                ReactGA.event({
+                  action: "Change_company",
                   category: "Experience",
                   label: "changed company",
                 });

@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { montserrat } from "@/app/fonts";
-import { event } from "nextjs-google-analytics";
+import ReactGA from "react-ga4";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -26,7 +26,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    event("submit_form", {
+    ReactGA.event({
+      action: "submit_form",
       category: "Contact",
       label: form.name,
     });

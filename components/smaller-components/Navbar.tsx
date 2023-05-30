@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { event } from "nextjs-google-analytics";
+import ReactGA from "react-ga4";
 import { MdOutlineClose } from "react-icons/md";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { GoMail } from "react-icons/go";
@@ -19,7 +19,8 @@ const Navbar = () => {
     setShowMenu(false);
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*\#/, "");
-    event("navbar_link", {
+    ReactGA.event({
+      action: "navbar_link",
       category: "Navbar",
       label: targetId,
     });
@@ -37,6 +38,14 @@ const Navbar = () => {
     if (e.target.contains(ref.current)) {
       setShowMenu(false);
     }
+  };
+
+  const handleAnalyticsEvent = () => {
+    ReactGA.event({
+      category: "Navbar",
+      action: "Check Resume",
+      label: "checked_resume",
+    });
   };
 
   return (
@@ -129,6 +138,7 @@ const Navbar = () => {
             href="/assets/Siddharth Nair - Resume.pdf"
             target="_blank"
             title="Siddharth Nair Resume"
+            onClick={handleAnalyticsEvent}
           >
             <motion.button
               initial={{ opacity: 0 }}
@@ -144,7 +154,8 @@ const Navbar = () => {
         <div
           className="w-6 h-5 flex flex-col justify-between items-center mdl:hidden text-4xl text-textGreen cursor-pointer overflow-hidden group"
           onClick={() => {
-            event("mobile_menu_toggle", {
+            ReactGA.event({
+              action: "mobile_menu_toggle",
               category: "Navbar_mobile",
               label: "mobile menu",
             });

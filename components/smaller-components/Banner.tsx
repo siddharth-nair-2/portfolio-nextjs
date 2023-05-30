@@ -2,9 +2,16 @@
 
 import { montserrat } from "@/app/fonts";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import ReactGA from "react-ga4";
 
 const Banner = () => {
+  const handleAnalyticsEvent = () => {
+    ReactGA.event({
+      category: "Banner",
+      action: "Check_Out_projects",
+      label: "check_projects",
+    });
+  };
   return (
     <section
       id="home"
@@ -39,12 +46,6 @@ const Banner = () => {
         Full-stack development. I have a strong foundation in front & back-end
         development and am skilled in creating user-friendly and responsive web
         apps using modern technology. <br />
-        <Link href="#experience">
-          <span className="text-textGreen inline-flex relative cursor-pointer h-7 overflow-x-hidden group">
-            Learn more
-            <span className="absolute w-full h-[1px] bg-textGreen left-0 bottom-1 -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
-          </span>
-        </Link>
       </motion.p>
       <motion.button
         className="w-52 h-14 text-sm border border-textGreen rounded-md text-textGreen tracking-wide hover:bg-hoverColor duration-300"
@@ -52,7 +53,11 @@ const Banner = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.9 }}
       >
-        <a href="https://github.com/siddharth-nair-2/" target="_blank">
+        <a
+          href="https://github.com/siddharth-nair-2/"
+          target="_blank"
+          onClick={handleAnalyticsEvent}
+        >
           Check out my projects!
         </a>
       </motion.button>
