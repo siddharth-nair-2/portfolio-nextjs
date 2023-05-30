@@ -1,10 +1,10 @@
 "use client";
-import { montserrat } from "@/app/fonts";
 import { logoImg } from "@/public/assets";
 import Image from "next/image";
 import Link from "next/link";
-import { easeIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
+import { event } from "nextjs-google-analytics";
 import { MdOutlineClose } from "react-icons/md";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { GoMail } from "react-icons/go";
@@ -19,6 +19,10 @@ const Navbar = () => {
     setShowMenu(false);
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*\#/, "");
+    event("navbar_link", {
+      category: "Navbar",
+      label: targetId,
+    });
     const elem = document.getElementById(targetId);
     elem?.scrollIntoView({ behavior: "smooth" });
 
@@ -139,7 +143,13 @@ const Navbar = () => {
         {/* Small Icon section */}
         <div
           className="w-6 h-5 flex flex-col justify-between items-center mdl:hidden text-4xl text-textGreen cursor-pointer overflow-hidden group"
-          onClick={() => setShowMenu(true)}
+          onClick={() => {
+            event("mobile_menu_toggle", {
+              category: "Navbar_mobile",
+              label: "mobile menu",
+            });
+            setShowMenu(true);
+          }}
         >
           <span className=" menu-style group-hover:translate-x-2 "></span>
           <span className=" menu-style translate-x-3 group-hover:translate-x-0 "></span>

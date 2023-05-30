@@ -1,14 +1,13 @@
-import Banner from "@/components/Banner";
 import Experience from "@/components/sections/Experience";
-import LeftBar from "@/components/LeftBar";
-import RightBar from "@/components/RightBar";
 import About from "../components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Archive from "@/components/sections/Archive";
 import { getData } from "./get-repos";
-import { Repo } from "@/types/Repo";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import LeftBar from "@/components/smaller-components/LeftBar";
+import Banner from "@/components/smaller-components/Banner";
+import RightBar from "@/components/smaller-components/RightBar";
 
 export default async function Home() {
   const tempRepos = await getData();

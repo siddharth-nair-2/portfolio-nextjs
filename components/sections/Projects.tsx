@@ -1,10 +1,10 @@
 import { montserrat } from "@/app/fonts";
 import Image from "next/image";
 import React from "react";
-import { projectInfo } from "../data";
-import SectionTitle from "../SectionTitle";
 import { TbBrandGithub } from "react-icons/tb";
 import { RxOpenInNewWindow } from "react-icons/rx";
+import SectionTitle from "../smaller-components/SectionTitle";
+import { projectInfo } from "../smaller-components/data";
 
 const Projects = () => {
   return (

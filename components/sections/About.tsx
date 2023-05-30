@@ -1,11 +1,11 @@
 "use client";
 
 import { montserrat } from "@/app/fonts";
-import SectionTitle from "../SectionTitle";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { profileImg } from "@/public/assets";
+import SectionTitle from "../smaller-components/SectionTitle";
 
 const TECH = [
   "JavaScript",

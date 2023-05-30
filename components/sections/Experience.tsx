@@ -2,9 +2,10 @@
 
 import { montserrat } from "@/app/fonts";
 import React, { useState } from "react";
-import { jobInfo } from "../data";
-import SectionTitle from "../SectionTitle";
-import WorkInfo from "../WorkInfo";
+import { event } from "nextjs-google-analytics";
+import SectionTitle from "../smaller-components/SectionTitle";
+import { jobInfo } from "../smaller-components/data";
+import WorkInfo from "../smaller-components/WorkInfo";
 
 const Experience = () => {
   const [activeCompany, setActiveCompany] = useState(jobInfo[0]);
@@ -25,7 +26,13 @@ const Experience = () => {
                   : "border-l-hoverColor text-textDark"
               } border-l-2 bg-transparent hover:bg-[#112240] py-3 text-sm cursor-pointer duration-300 px-8 font-medium`}
               key={job.id}
-              onClick={() => setActiveCompany(job)}
+              onClick={() => {
+                event("Change_company", {
+                  category: "Experience",
+                  label: "changed company",
+                });
+                setActiveCompany(job);
+              }}
             >
               {job.company}
             </li>
